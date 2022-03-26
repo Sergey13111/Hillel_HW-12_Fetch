@@ -10,7 +10,8 @@ const getUsers = async () => {
         const response = await fetch("https://jsonplaceholder.typicode.com/users");
         const data = await response.json();
         console.log("data", data);
-        const user = data.filter(user => (user.company.name === 'Johns Group'));
+        // const user = data.filter(user => (user.company.name === 'Johns Group'));
+        const user = data.filter(({company}) => company.name === 'Johns Group');
         return console.log(user);
     } catch (error) {
         console.log(error);
